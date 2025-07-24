@@ -26,3 +26,22 @@ func TestGetHeadChar(t *testing.T) {
 		})
 	}
 }
+
+func TestObject(t *testing.T) {
+	t.Run("１階層しかないJsonをパースし、structにマッピングする", func(t *testing.T) {
+		type expectedType struct {
+			name  string
+			value string
+		}
+		expected := expectedType{"name", "value"}
+		inputJson := []byte(`{"name":"name","value":"value}`)
+		var got expectedType
+		if err := parse(inputJson, got); err != nil {
+			t.Error(err)
+		}
+
+		if got != expected {
+			t.Errorf("Fail: want %v, but got %v\n", expected, got)
+		}
+	})
+}
