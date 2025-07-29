@@ -1,7 +1,3 @@
 # JSON Parser
 
-自作JSONパーサ
-
-趣味で作る。実用的なものは作らない
-
-最初はASTなしで作る。気が向いたら拡張する。
+encoding/jsonのUnmarshal関数と同じシグネチャのパーサを作る。
